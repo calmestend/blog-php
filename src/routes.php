@@ -7,6 +7,7 @@ $routes = [
 	'/blog-reto-01/' => 'src/components/index.php',
 	'/blog-reto-01/login' => 'src/components/login.php',
 	'/blog-reto-01/signup' => 'src/components/signup.php',
+	'/blog-reto-01/posts' => 'src/components/post.php',
 ];
 
 if (array_key_exists($uri, $routes)) {

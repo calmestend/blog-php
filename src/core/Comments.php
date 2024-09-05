@@ -16,6 +16,22 @@ class Comments {
 		$this->conn = $db;
 	}
 
+	public function setPostId(int $postId): void
+	{
+		$this->post_id = $postId;
+	}
+
+	public function setUserId(int $userId): void
+	{
+		$this->user_id = $userId;
+	}
+
+	public function setComment(string $comment): void
+	{
+		$this->comment = $comment;
+	}
+
+
 	public function select() : PDOStatement | bool
 	{
 		$query = "SELECT * FROM comments";
@@ -24,6 +40,16 @@ class Comments {
 		$statement->execute();
 
 		return $statement;
+	}
+
+	public function getCommentsByPostId(int $postId) : Array
+	{
+		$query = "SELECT * FROM comments WHERE post_id = ? ORDER BY created_at DESC";
+		$statement = $this->conn->prepare($query);
+		$statement->bindParam(1 , $postId);
+		$statement->execute();
+
+		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function insert() : bool
@@ -44,4 +70,3 @@ class Comments {
 }
 
 ?>
-

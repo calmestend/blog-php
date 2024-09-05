@@ -246,6 +246,9 @@ class ComposerStaticInit23f56edb2aaf1da551c6d63dcfd4722f
         ),
         'A' => 
         array (
+            'App\\includes\\' => 13,
+            'App\\core\\' => 9,
+            'App\\api\\auth\\' => 13,
             'App\\' => 4,
             'Amp\\WindowsRegistry\\' => 20,
             'Amp\\Sync\\' => 9,
@@ -595,6 +598,18 @@ class ComposerStaticInit23f56edb2aaf1da551c6d63dcfd4722f
         'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'App\\includes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/includes',
+        ),
+        'App\\core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/core',
+        ),
+        'App\\api\\auth\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/api/auth',
         ),
         'App\\' => 
         array (

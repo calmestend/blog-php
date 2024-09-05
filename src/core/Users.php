@@ -11,9 +11,43 @@ class Users {
 	private string $password;
 	private string $created_at;
 
-	public function __construct(PDO $db)
+	public function __construct
+	(
+		PDO $db,
+		int $user_id = null,
+		string $username = null,
+		string $email = null,
+		string $password = null,
+		string $created_at = null
+	)
+
 	{
 		$this->conn = $db;
+
+		if ($user_id) 
+		{
+			$this->user_id = $user_id; 
+		}
+
+		if ($username) 
+		{
+			$this->username = $username;
+		}
+
+		if ($email) 
+		{
+			$this->email = $email;
+		}
+
+		if ($password) 
+		{
+			$this->password = $password;
+		}
+
+		if ($created_at) 
+		{
+			$this->created_at = $created_at;
+		}
 	}
 
 	public function select() : PDOStatement | bool
@@ -23,6 +57,20 @@ class Users {
 		$statement = $this->conn->prepare($query);
 		$statement->execute();
 		return $statement;
+	}
+
+	public function selectByUsername() : Array
+	{
+		$query = "SELECT * FROM users WHERE username = ?";
+
+		$this->username = htmlspecialchars(strip_tags($this->username));
+
+		$statement = $this->conn->prepare($query);
+
+		$statement->bindParam(1, $this->username);
+
+		$statement->execute();
+		return $statement->fetch(PDO::FETCH_ASSOC);
 	}
 
 	public function insert() : bool
@@ -44,4 +92,3 @@ class Users {
 }
 
 ?>
-

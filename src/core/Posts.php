@@ -16,6 +16,21 @@ class Posts {
 		$this->conn = $db;
 	}
 
+	public function setTitle(string $title) : void
+	{
+		$this->title = htmlspecialchars(strip_tags($title));
+	}
+
+	public function setContent(string $content) : void
+	{
+		$this->content = htmlspecialchars(strip_tags($content));
+	}
+
+	public function setUserId(int $user_id) : void
+	{
+		$this->user_id = $user_id;
+	}
+
 	public function select() : PDOStatement | bool
 	{
 		$query = "SELECT * FROM posts";

@@ -13,6 +13,12 @@ class Categories {
 		$this->conn = $db;
 	}
 
+	public function setName(string $name) : void
+	{
+		$this->name = htmlspecialchars(strip_tags($name));
+	}
+
+
 	public function select() : PDOStatement | bool
 	{
 		$query = "SELECT * FROM categories";
