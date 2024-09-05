@@ -1,7 +1,8 @@
 {
   "name": "barac/blog",
   "require": {
-    "phpactor/phpactor": "^0.18.1"
+    "phpactor/phpactor": "^0.18.1",
+    "twbs/bootstrap": "^5.3"
   },
   "autoload": {
     "psr-4": {
